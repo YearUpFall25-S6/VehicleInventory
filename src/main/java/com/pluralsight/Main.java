@@ -3,9 +3,12 @@ package com.pluralsight;
 import java.util.Scanner;
 
 public class Main {
+
+    private static Vehicle[] inventory = new Vehicle[20];
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Vehicle[] inventory = new Vehicle[20];
+
         int quantityOfVehicles;
 
         inventory[0] = new Vehicle(101121, "Ford Explorer", "Red", 45000, 13500);
@@ -21,7 +24,8 @@ public class Main {
         quantityOfVehicles = 9;
 
         int command;
-        do{
+
+        while(true){
 
 
             System.out.println("What do you want to do?");
@@ -34,11 +38,14 @@ public class Main {
             System.out.print("Enter your command: ");
 
             command = scanner.nextInt();
+
             switch(command) {
                 case 1:
                     listAllVehicles();
                     break;
                 case 2:
+                    findVehidlesByMakeModel();
+                case 3:
                     findVehiclesByPrice();
                     break;
                 case 5:
@@ -46,26 +53,43 @@ public class Main {
                     break;
                 case 6:
                     return;
+                default:
+                    System.out.println("INVALID COMMAND!! Please select a valid option.");
+                    break;
             }
 
-        } while(command != 6);
+        }
 
 
 
 
+    }
+
+    private static void findVehidlesByMakeModel() {
+        //todo: finish search by makemodel
     }
 
 
     private static void listAllVehicles(){
         System.out.println("Listing out vehicles....");
-        //todo: list all vehicles here...
+        for(Vehicle v : inventory){
+            if(v == null) {
+                continue;
+            }
+            System.out.println(v.getVehicleId());
+            System.out.println(v.getColor() + " " + v.getMakeModel());
+            //todo: make this not so ugly.
+        }
+
     }
 
     private static void findVehiclesByPrice() {
-
+//todo: finish search by price
     }
 
     private static void addAVehicle() {
+
+        //todo: prompt user for new vehicle data and add new vehicle.
     }
 
 }
