@@ -54,4 +54,13 @@ public class Vehicle {
     public void setPrice(float price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%10d %18s %10s %10d %10.2f", vehicleId, makeModel, color, odometerReading, price);
+    }
+
+    public static String getTableHeader(){
+        return  String.format("%s %18s %10s %10s %10s\n------------------------------------------------------------------------", "Vehicle VIN", "Make / Model", "Color", "Mileage", "Price");
+    }
 }

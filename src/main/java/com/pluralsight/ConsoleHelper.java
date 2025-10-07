@@ -12,10 +12,48 @@ public class ConsoleHelper {
     }
 
     public static int promptForInt(String prompt){
-        System.out.println(prompt + ": ");
-        int result = scanner.nextInt();
-        scanner.nextLine();
+
+
+        boolean isValid = false;
+        int result = 0;
+        do{
+            try{
+                System.out.println(prompt + ": ");
+                result = scanner.nextInt();
+                scanner.nextLine();
+                isValid = true;
+            }
+            catch(Exception ex){
+                scanner.nextLine();
+                System.out.println("Invalid Entry, please enter a whole number");
+                //ex.printStackTrace();
+            }
+        } while (!isValid);
+
+
+        //after the catch
         return result;
+
+    }
+
+
+    public static int promptForIntAlt(String prompt){
+
+        int result = 0 ;
+
+        try{
+            System.out.println(prompt + ": ");
+            result = scanner.nextInt();
+            scanner.nextLine();
+        }
+        catch(Exception ex){
+            scanner.nextLine();
+            System.out.println("Invalid Entry, please enter a whole number");
+        }
+
+        //after the catch
+        return result;
+
     }
 
     public static float promptForFloat(String prompt){

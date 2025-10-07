@@ -89,14 +89,18 @@ public class Main {
     }
 
     private static void displayVehicle(Vehicle v){
-        System.out.print(v.getVehicleId() + " ");
-        System.out.println(v.getColor() + " " + v.getMakeModel());
+
+        System.out.println(v);
+
+       // System.out.print(v.getVehicleId() + " ");
+       // System.out.println(v.getColor() + " " + v.getMakeModel());
         //todo: make this not so ugly, also more complete.
     }
 
 
     private static void listAllVehicles(){
         System.out.println("Listing out vehicles....");
+        System.out.println(Vehicle.getTableHeader());
         for(Vehicle v : inventory){
             if(v == null) {
                 continue;
